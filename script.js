@@ -1,3 +1,6 @@
+const searchButton = document.getElementById('search-btn');
+const movieInput = document.getElementById('searchInput');
+const section = document.querySelector('.section');
 
 const options = {
     method: 'GET',
@@ -30,7 +33,7 @@ const makeMovieList = async function () {
     const result = data.results;
 
     const movieWrapper = document.querySelector('.movieWrapper');
-    movieWrapper.innerHTML = '';
+    // movieWrapper.innerHTML = '';
 
     result.forEach(movie => {
         createCard(movie);
@@ -63,4 +66,41 @@ function createCard(movie) {
     document.querySelector('.movieWrapper').appendChild(card);
 }
 
-makeMovieList();
+const searchMovie = async function () {
+    const data = await getData();
+    const result = data.results;
+
+    const inputValue = movieInput.value;
+    const regEx = new RegExp(inputValue, 'gi');
+
+    section.innerHTML = '';
+    
+    result.forEach((data) => {
+        if (data.original_title.match(regEx)) {
+            createCard(data);
+        }
+    });
+}
+
+// const searchMovie = async function () {
+//     const data = await getData();
+//     const result = data.results;
+
+//     const inputValue = movieInput.value;
+//     const regEx = new RegExp(inputValue, 'gi');
+
+//     // if (movie.original_title) {
+//     //     inputValue = movie.original_title;
+//     // }
+//     section.innerHTML = '';
+//     result.forEach((data) => {
+//         if (data.original_title.match(regEx)) {
+//             createCard(data);
+//         }
+//     })
+// }
+
+searchButton.addEventListener('click', searchMovie);
+
+
+window.onload = makeMovieList;
