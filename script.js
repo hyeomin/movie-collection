@@ -82,25 +82,6 @@ const searchMovie = async function () {
     });
 }
 
-// const searchMovie = async function () {
-//     const data = await getData();
-//     const result = data.results;
-
-//     const inputValue = movieInput.value;
-//     const regEx = new RegExp(inputValue, 'gi');
-
-//     // if (movie.original_title) {
-//     //     inputValue = movie.original_title;
-//     // }
-//     section.innerHTML = '';
-//     result.forEach((data) => {
-//         if (data.original_title.match(regEx)) {
-//             createCard(data);
-//         }
-//     })
-// }
-
 searchButton.addEventListener('click', searchMovie);
-
 
 window.onload = makeMovieList;
