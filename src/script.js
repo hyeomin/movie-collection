@@ -1,6 +1,7 @@
 const searchButton = document.getElementById('search-btn');
 const movieInput = document.getElementById('searchInput');
-const section = document.querySelector('.section');
+const section = document.querySelector('section');
+const todayDate = document.getElementById('today-date')
 
 const options = {
     method: 'GET',
@@ -12,7 +13,7 @@ const options = {
 
 // get full data
 const getData = async function () {
-    const response = await fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=5a348c069089ba6a930a7c6dc692f149&append_to_response=videos,images", options);
+    const response = await fetch("https://api.themoviedb.org/3/movie/top_rated?language=ko-ko&page=1", options);
     const data = await response.json();
     return data;
 }
@@ -33,7 +34,7 @@ const makeMovieList = async function () {
     const result = data.results;
 
     const movieWrapper = document.querySelector('.movieWrapper');
-    // movieWrapper.innerHTML = '';
+    movieWrapper.innerHTML = '';
 
     result.forEach(movie => {
         createCard(movie);
@@ -83,5 +84,19 @@ const searchMovie = async function () {
 }
 
 searchButton.addEventListener('click', searchMovie);
+
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const today = new Date();
+
+    const formattedDate = today.toLocaleDateString('ko-KR', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+    });
+
+    todayDate.innerHTML += ` <span class="date">오늘은 ${formattedDate}입니다.</span>`;
+});
+
 
 window.onload = makeMovieList;
