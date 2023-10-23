@@ -1,9 +1,121 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Serif+KR&display=swap');
 
 * {
+    font-family: 'Black Han Sans', sans-serif;
     font-family: 'Noto Serif KR', serif;
 }
 
-.body {
-    color: black;
+body {
+    background-color: #FFAE53;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+}
+
+#today-date {
+    /* color: green; */
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.movieSearchBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: right;
+}
+
+#search-label {
+    /* color: green; */
+    margin-right: 10px;
+    font-size: 100%;
+}
+
+#search-btn {
+    width: 83px;
+    height: 40px;
+
+    border-radius: 5px;
+    border: 1px solid #F1F1F1;
+    background: rgba(217, 217, 217, 0.00);
+}
+
+#searchInput {
+    width: 250px;
+    height: 40px;
+    text-align: center;
+
+    border-radius: 5px;
+    border: transparent;
+    margin-right: 5px;
+
+}
+
+header>h3 {
+    display: flex;
+    flex-direction: column;
+    /* color: green; */
+    width: 100%;
+    align-items: center;
+
+    font-size: 50px;
+    text-align: center;
+}
+
+.movieWrapper {
+    width: 1200px;
+    padding: 5px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.single-card {
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    width: 25%;
+    height: 750px;
+
+    background-color: black;
+    border: #F1F1F1;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.movieImage {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.movieTitle {
+    color: #FFAE53;
+}
+
+.movieOverview {
+    color: #F1F1F1;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.movieVoteAvg{
+    color: #F1F1F1;
 }

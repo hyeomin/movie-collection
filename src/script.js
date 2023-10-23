@@ -13,7 +13,7 @@ const options = {
 
 // get full data
 const getData = async function () {
-    const response = await fetch("https://api.themoviedb.org/3/movie/top_rated?language=ko-ko&page=1", options);
+    const response = await fetch("https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=1", options);
     const data = await response.json();
     return data;
 }
@@ -25,6 +25,7 @@ const extractedProperties = function (movie) {
         original_title: movie.original_title,
         overview: movie.overview,
         vote_average: movie.vote_average
+        // id: movie.id
     }
 }
 
@@ -51,13 +52,16 @@ function createCard(movie) {
     img.alt = movie.original_title;
 
     const movieTitle = document.createElement('h3');
+    movieTitle.className = 'movieTitle'
     movieTitle.innerText = movie.original_title;
 
     const movieOverview = document.createElement('p');
+    movieOverview.className = 'movieOverview'
     movieOverview.innerText = movie.overview;
 
     const movieVoteAvg = document.createElement('p');
-    movieVoteAvg.innerText = `Rating: ${movie.vote_average}`;
+    movieVoteAvg.className = 'movieVoteAvg'
+    movieVoteAvg.innerText = `별점: ${movie.vote_average}`;
 
     card.appendChild(img);
     card.appendChild(movieTitle);
@@ -65,7 +69,10 @@ function createCard(movie) {
     card.appendChild(movieVoteAvg);
 
     document.querySelector('.movieWrapper').appendChild(card);
+
+    // card.addEventListener('click',alert{})
 }
+
 
 const searchMovie = async function () {
     const data = await getData();
@@ -84,7 +91,6 @@ const searchMovie = async function () {
 }
 
 searchButton.addEventListener('click', searchMovie);
-
 
 document.addEventListener('DOMContentLoaded', (event) => {
     const today = new Date();

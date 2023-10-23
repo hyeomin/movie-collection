@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>혜오민이 말아주는 Moive Collection</title>
+    <title>혜오민이 말아주는 Movie Collection</title>
     <link rel="stylesheet" href="/src/index.css">
     <script src="/src/script.js" defer></script>
 </head>
@@ -12,17 +12,19 @@
 <body>
     <nav class="nav-bar">
         <p id="today-date"></p>
+        <div class="movieSearchBar">
+            <label id="search-label">영화 검색</label>
+            <form class="movieSearch">
+                <input type="text" id="searchInput" placeholder="영화를 검색하세요">
+                <button type="button" id="search-btn">검색</button>
+            </form>
+        </div>
     </nav>
     <header>
-        <img src="" 
-        alt="No Image">
+        <img src="/img/header.png" alt="No image" width="100%">
+        <h3>혜오민/s Movie Collection</h3>
     </header>
     <main>
-        <label>영화 검색</label>
-        <form class="movieSearch">
-            <input type="text" id="searchInput" placeholder="영화를 검색하세요">
-            <button type="button" id="search-btn">검색</button>
-        </form>
         <section class="movieWrapper">
         </section>
     </main>
