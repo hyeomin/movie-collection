@@ -24,8 +24,8 @@ const extractedProperties = function (movie) {
         poster_path: movie.poster_path,
         original_title: movie.original_title,
         overview: movie.overview,
-        vote_average: movie.vote_average
-        // id: movie.id
+        vote_average: movie.vote_average,
+        id: movie.id
     }
 }
 
@@ -70,7 +70,12 @@ function createCard(movie) {
 
     document.querySelector('.movieWrapper').appendChild(card);
 
-    // card.addEventListener('click',alert{})
+    card.addEventListener('click', (e) => {
+        e.preventDefault;
+        alert(`영화 ID: ${movie.id}`)
+    })
+
+
 }
 
 
@@ -82,7 +87,7 @@ const searchMovie = async function () {
     const regEx = new RegExp(inputValue, 'gi');
 
     section.innerHTML = '';
-    
+
     result.forEach((data) => {
         if (data.original_title.match(regEx)) {
             createCard(data);
